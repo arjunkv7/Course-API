@@ -1,0 +1,81 @@
+<section>
+    <div class="container-fluid bg-light" style="min-height:500px ;">
+        <div class="row align-center">
+
+            <div class="  col" style="padding:1% 5%;  width:100%; ">
+                <h2 class="text-center">Add Course</h2>
+                <form action="/addcourse" method="POST" enctype="multipart/form-data"
+                    style="width:100%; padding:1% 5%;" class="">
+                    <div class="col-8 float-left  p-3" style="margin:10px 20px ; width: 40%;">
+                        <label for="course-name" class="mt-2">Enter Product Name*</label>
+                        <input type="text" id="course-name " class="form-control mt-2" name="coursename" required
+                            value=''>
+
+                        <label for="univercity-name" class="mt-2">Enter Univercity Name*</label>
+                        <input type="text" id="univercity-name " class="form-control mt-2" name="univercity" required
+                            value=''>
+
+                        <label for="learning-hours" class="mt-2"> Enter Learning Hours/day*</label>
+                        <input type="number" id="learning-hour " class="form-control mt-2 " name="learninghour" required
+                            value="">
+
+                        <label for="course-duration" class="mt-2">Enter Duration(months)*</label>
+                        <input type="number" id="course-duration" class="form-control mt-2" name="duration" required
+                            value="">
+
+
+                        <label for="eligibility" class="mt-2">Enter Eligibility criteria*</label>
+                        <textarea type="text" class="form-control mt-2" name="eligibility"
+                            id="eligibilty"></textarea>
+
+                        <label for="faculty"class="mt-2">Faculty Profile(Linkedin)</label>
+                        <input type="url" id="facouty-link" class="form-control" name="facultyurl">
+
+                        <label for="price" class="mt-2">Enter price*</label>
+                        <input type="number" class="form-control mt-2" id="course-price" name="price" required
+                            value="">
+
+                    </div>
+                    <div class="col-4 float-left w-100 p-3" style="margin:10px 100px ;">
+                        <label for="courseimage" class="form-label mt-3">Upload Course Image</label>
+                        <input class="form-control  mt-3 p-1" type="file" id="course-image" name="courseimage" required
+                            onchange="viewImage(event)" value="/certificateImages/{{courseDetails._id}}certificate.jpg">
+                        <div class="col-md mt-3 text-center p-3" style="padding:20px 20px ;">
+                            <div class="m-4">
+                                <img src="" style="width: 100px; height: 100px;"
+                                    id="courseImg">
+
+                            </div>
+                        </div>
+
+                        <label for="certificateimage" class="form-label mt-3">Upload Certificate Image</label>
+                        <input class="form-control mt-3 p-1" type="file" id="certificate-image" name="certificate" required
+                            onchange="viewImage2(event)">
+                        <div class="col-md  text-center p-3 mt-3" style="padding:20px 20px ;">
+                            <div class="m-4">
+                                <img src=""
+                                    style="width: 100px; height: 100px;" id="certificateImg">
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <input type="submit" class="btn btn-success mt-3 col-3 " value="Add product"
+                        style="width:200px ; margin-left: 40%;">
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+</section>
+<script>
+    function viewImage(event) {
+        document.getElementById("courseImg").src = URL.createObjectURL(event.target.files[0])
+    }
+
+    function viewImage2(event) {
+        document.getElementById("certificateImg").src = URL.createObjectURL(event.target.files[0])
+    }
+</script>

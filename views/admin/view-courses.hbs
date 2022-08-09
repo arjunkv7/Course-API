@@ -1,0 +1,48 @@
+<section class=" bg-light" style=" min-height: 650px;">
+  <div class="container" style="padding-top:50px ; background-color: " >
+    <div class="row p-4" id="display-products"><h2 class="m-auto">Products</h2></div>
+    <div class="row">
+      <a class="btn btn-success ml-auto mr-3 mb-2" href="/addcourse">Add new item</a>
+    </div>
+    <table class="table ">
+      <thead class="thead-dark ">
+        <tr>
+          <th scope="col">Course Name</th>
+          <th scope="col">Univercity</th>
+          <th scope="col">Eligibility</th>
+          <th scope="col">Faculty(url)</th>
+          <th scope="col">Duration</th>
+          <th scope="col">Price</th>
+          <th scope="col">Image</th>
+          <th scope="col">Options</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each courses}}
+        <tr>
+          
+          <td>{{this.coursename}}</td>
+          <td>{{this.univercity}}</td>
+          <td>{{this.eligibility}}</td>
+          {{#if this.facultyurl}}
+          <td><a href=" {{this.facultyurl}}">Click</a></td>
+          {{else }}
+          <td>Nil</td>
+          {{/if}}
+          <td>{{this.duration}}months</td>
+          <td>{{this.price}}</td>
+          <td><img  style="height:50px; width: 50px;" src="/courseImages/{{this._id}}.jpg" alt=""></td>
+          <td>
+           <a href="/edit-course?courseId={{this._id}}" class="btn btn-primary">Edit</a> 
+            <a href="/delete-course/{{this._id}}" class="btn btn-danger" onclick="return confirm('Do you really want to delete this item?')">Delete</a> 
+          </td>
+
+        </tr>
+        {{/each}}
+      </tbody>
+
+    </table>
+
+
+  </div>
+</section>
